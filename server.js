@@ -17,8 +17,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/:room', (req, res) => {
-  res.render('room', { roomId: req.params.room });
+  res.render('createRoom', { roomId: req.params.room });
 });
+
+const rooms = {};
 
 io.on('connection', socket => {
   

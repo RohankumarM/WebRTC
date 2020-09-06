@@ -47,7 +47,7 @@ navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true,
 
-}).then(stream => {
+}).then((stream) => {
   myVideoStream = stream;
   addVideo(myVideo, stream);
 
