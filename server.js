@@ -30,13 +30,13 @@ app.post('/join_room', (req, res) => {
 app.post('/',(req,res) => {
   // console.log(req.body.room_ID);
   roomID = req.body.room_ID
-  return res.redirect(`${roomID}`);
+  return res.redirect(`/r?roomID=${roomID}`);
 
 });
 
-app.get('/:roomId', (req, res) => {
-  console.log(req.params.roomId);
-  res.render('room', { roomId: req.params.roomId });
+app.get('/r', (req, res) => {
+  console.log(req.query.roomID);
+  res.render('room', { roomId: 123 });
 });
 
 io.on('connection', socket => {
