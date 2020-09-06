@@ -1,0 +1,11 @@
+body{
+  background-image: url(first-display.jpg);
+  background-repeat: no-repeat;
+}
+
+.createRoom{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 150px;
+}

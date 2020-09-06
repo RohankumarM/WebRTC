@@ -3,16 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="createRoom.css">
   <title>Document</title>
 </head>
 <body>
 
   <div class="container">
     <div class="createRoom">
-      <Button>Create Room</Button>
+      <form action="/" method="POST">
+        <input id="RoomID" type="number" name="room_ID" placeholder=" Room ID" required/>
+      <Button onclick="createCallRoom()">Create Room</Button>
+      </form>
+      
     </div>
   </div>
 
-  <script src="createRoom.js"></script>
+  <script src="CreateRoom.js"></script>
 </body>
 </html>
