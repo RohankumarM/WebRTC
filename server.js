@@ -15,25 +15,28 @@ app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-var roomID;
+var roomID, join_Room_id;
 
 app.get('/', (req, res) => {
   res.render('createRoom');
   // res.redirect(`/${uuidv4()}`)
 });
 
+app.post('/join_room', (req, res) => {
+  join_Room_id = req.body.join_room_ID;
+  return res.redirect(`${join_Room_id}`);
+});
+
 app.post('/',(req,res) => {
   // console.log(req.body.room_ID);
   roomID = req.body.room_ID
-  console.log(roomID);
-  console.log(`/r/${roomID}`);
   return res.redirect(`${roomID}`);
 
 });
 
 app.get('/:roomId', (req, res) => {
-  console.log('/r/roomID');
-  res.render('room', { roomId: 123 });
+  console.log(req.params.roomId);
+  res.render('room', { roomId: req.params.roomId });
 });
 
 io.on('connection', socket => {
