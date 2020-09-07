@@ -17,7 +17,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <script>
   const roomID = "<%= roomId %>";
-  console.log(roomID);
 </script>
 
 <body>
@@ -59,9 +58,9 @@
             <span>Secured</span>
           </div>
 
-          <div class="main__controls__button">
-            <i class="fas fa-user-friends"></i>
-            <span>Participants</span>
+          <div class="main__controls__button main_fullscreen_button" onclick="showFullScreen()">
+            <i class="fas fa-expand"></i>
+            <span>Full Screen</span>
           </div>
 
           <div class="main__controls__button" onclick="showHideChat()">
@@ -70,10 +69,10 @@
           </div>
         </div>
 
-        <div class="main__controls__block" onclick="leaveMeeting()">
+        <div class="main__controls__block" onclick="leaveCall()">
           <div class="main__controls__button">
             <i class="fas fa-sign-out-alt"></i>
-            <span class="leave_meeting">Leave Call</span>
+            <span class="leave_call">Leave Call</span>
           </div>
         </div>
 

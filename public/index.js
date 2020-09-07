@@ -153,12 +153,12 @@ const setPlayVideo = () => {
   document.querySelector('.main__video_button').innerHTML = html;
 };
 
-const leaveMeeting = () => {
+const leaveCall = () => {
   //when user disconnects
   socket.on('user-disconnected', userId => {
     if (peers[userId]) peers[userId].close();
   });
-  self.close();
+  window.close();
 };
 
 
@@ -176,7 +176,46 @@ const showHideChat = () => {
     rightSideChat.style.flex = "0";
   }
 }
+var fullScreen = true;
 
+const getFullScreenElement = () => {
+  return document.fullscreenElement || document.webkitFullscreenElement || document.mozFullscreenElement
+  || document.msFullscreenElement;
+};
+
+const toggleFullScreen = () => {
+
+  if (getFullScreenElement()) {
+    document.exitFullscreen();
+    showMaximizeButton();
+  }
+  else {
+    document.documentElement.requestFullscreen();
+    showMinimizeButton();
+  }
+};
+
+const showFullScreen = () => {
+
+  toggleFullScreen();
+};
+
+const showMinimizeButton = () => {
+  const html = `
+  <i class="fas fa-compress"></i>
+    <span>Exit</span>
+  `
+  document.querySelector('.main_fullscreen_button').innerHTML = html;
+  fullScreen = false;
+};
+
+const showMaximizeButton = () => {
+  const html = `
+  <i class="fas fa-expand"></i>
+    <span>Full Screen</span>
+  `
+  document.querySelector('.main_fullscreen_button').innerHTML = html;
+}
 
 // const turnCamera = () => {
 //   console.log("in turn camera");
