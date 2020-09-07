@@ -16,9 +16,10 @@ video{
 }
 
 .main{
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   /* max-width: 100%; */
+  flex-grow: 1;
 }
 
 .main__left{
