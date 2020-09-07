@@ -184,14 +184,12 @@ const getFullScreenElement = () => {
 };
 
 const toggleFullScreen = () => {
-  var video = document.getElementById('full-screen');
-  console.log(video);
   if (getFullScreenElement()) {
     document.exitFullscreen();
     showMaximizeButton();
   }
   else {
-    video.requestFullscreen();
+    document.documentElement.requestFullscreen();
     showMinimizeButton();
   }
 };
