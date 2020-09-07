@@ -15,7 +15,8 @@ app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-var roomID, join_Room_id;
+var roomID = {};
+var join_Room_id;
 
 app.get('/', (req, res) => {
   res.render('createRoom');
@@ -24,7 +25,12 @@ app.get('/', (req, res) => {
 
 app.post('/join_room', (req, res) => {
   join_Room_id = req.body.join_room_ID;
+  if(join_Room_id == roomID){
   return res.redirect(`${join_Room_id}`);
+  }
+  else{
+    res.render('createRoom');
+  }
 });
 
 app.post('/',(req,res) => {
@@ -34,14 +40,13 @@ app.post('/',(req,res) => {
 
 });
 
-app.get('/:room', (req, res) => { 
+app.get('/:room:username', (req, res) => { 
   res.render('room', { roomId: req.params.room });
 });
 
 io.on('connection', socket => {
 
   socket.on('join-room', (roomId, userId) => {
-    console.log(roomId, userId);
     socket.join(roomId);
     socket.to(roomId).broadcast.emit('user-connected', userId);
     socket.on('message', (message) => {

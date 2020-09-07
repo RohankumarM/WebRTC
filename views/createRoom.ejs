@@ -4,19 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="createRoom.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <title>Document</title>
 </head>
 <body>
-
+  
   <div class="container">
+    <img src="meeting.png" />
+    <div id="heading"> ROVA </div>
+    
     <div class="createRoom">
       <form action="/" method="POST">
         <input id="RoomID" type="number" name="room_ID" placeholder=" Room ID" required/>
-      <Button onclick="createCallRoom()">Create Room</Button>
+      <Button class="btn btn1" onclick="createCallRoom()">Create Room</Button>
       </form>
 
-      <form action="/join_room" method="POST"> 
-        <Button id="join_room" onclick="joinCallRoom()">Join Room</Button>
+      <form id="join_room" action="/join_room" method="POST"> 
+        <Button class="btn btn1" onclick="joinCallRoom()">Join Room</Button>
         <input id="join_room_id" type="number" name="join_room_ID" placeholder="Enter Room ID" required/>
       </form>
       
