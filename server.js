@@ -29,7 +29,7 @@ app.post('/join_room', (req, res) => {
   return res.redirect(`${join_Room_id}`);
   }
   else{
-    res.render('createRoom');
+    
   }
 });
 
