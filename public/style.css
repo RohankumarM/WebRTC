@@ -6,7 +6,7 @@ body{
 #video-grid{
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 video{
@@ -37,7 +37,7 @@ video{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 
 .main__controls{
