@@ -41,13 +41,26 @@ const connectToNewUser = (userId, stream) => {
   peers[userId] = call;
 };
 
-let shouldFaceUser = true;
+var front = true;
 
-navigator.mediaDevices.getUserMedia({
-  video: true,
-  audio: true,
+const turnCamera = () => {
+  
+}
 
-}).then((stream) => {
+var constraints = {
+  video: { facingMode: { exact: "user" }},
+  audio: {
+    sampleRate: 22000,
+    sampleSize: 16,
+    volume: 0.9,
+
+    // removes the audio that went to the speakers from the input that comes through the mic.
+    echoCancellation: true,
+  },
+};
+
+navigator.mediaDevices.getUserMedia(constraints)
+.then((stream) => {
   myVideoStream = stream;
   addVideo(myVideo, stream);
 
@@ -216,8 +229,3 @@ const showMaximizeButton = () => {
   document.querySelector('.main_fullscreen_button').innerHTML = html;
 }
 
-// const turnCamera = () => {
-//   console.log("in turn camera");
-//   // toggle \ flip
-//   shouldFaceUser = !shouldFaceUser;
-// }
