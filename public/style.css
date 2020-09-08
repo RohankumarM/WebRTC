@@ -13,13 +13,15 @@ video{
   height: 300px;
   width: 400px;
   object-fit: cover;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 
 .main{
   min-height: 100vh;
   display: flex;
   /* max-width: 100%; */
-  flex-grow: 1;
+  flex-grow: 1; 
 }
 
 .main__left{
